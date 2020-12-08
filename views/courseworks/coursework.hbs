@@ -1,0 +1,101 @@
+<body id="page-top">
+    <div id="wrapper">
+            {{> _navbar}}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="/dashboard"><i class="fas fa-backward fa-sm text-white-50"></i>&nbsp;Back to Dashboard</a>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center shadow">
+                                <h2 class="card-title">{{coursework.status}}</h2>
+                                {{!-- <div class="mb-3"><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href=""><i class="fas fa-share-square fa-sm text-white-50"></i>&nbsp;Share</a></div> --}}
+                                <form>
+                                    <div class="input-group"><input id="sharelink" class="bg-light form-control border-0 small p1" type="text" value="localhost:3000/coursework/{{coursework._id}}">
+                                    <div class="input-group-append"><button onclick="copyText()" class="btn btn-primary py-0" value="Share" type="button">Share</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="text-primary font-weight-bold m-0">Milestones</h6>
+                            </div>
+                            <div class="card-body">
+                                {{#each coursework.milestones as |milestone|}}
+                                <h4 class="small font-weight-bold">{{milestone}}</h4>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card shadow mb-3">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">Coursework Information</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="username"><strong>Project Title</strong></label></div>
+                                                    <p>{{coursework.projectTitle}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="first_name"><strong>Module Name</strong></label></div>
+                                                    <p>{{coursework.module}}</p>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="last_name"><strong>Module Level</strong></label></div>
+                                                    <p>{{coursework.level}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="first_name"><strong>Due Date</strong></label></div>
+                                                    <p>{{formatDate coursework.due 'YYYY-MM-DD'}}</p>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="last_name"><strong>Completion Date</strong></label></div>
+                                                    <p>{{formatDate coursework.completed 'YYYY-MM-DD'}}</p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © schedulerApp 2020</span></div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
+
+<script>
+function copyText() {
+  /* Get the text field */
+  var copyText = document.getElementById("sharelink");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Text Copied!");
+}    
+</script>

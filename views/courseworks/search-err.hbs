@@ -1,0 +1,31 @@
+<body id="page-top">
+    <div id="wrapper">
+            {{> _navbar}}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-0">Hi, {{name}}</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="/dashboard"><i class="fas fa-backward fa-sm text-white-50"></i>&nbsp;Back to Dashboard</a></div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 font-weight-bold" onclick="handle()">Coursework Info</p>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="row">
+                                    <h6 class="alt-coursework">Your search did not return any courseworks. Please try again.<br><br></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © schedulerApp 2020</span></div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>

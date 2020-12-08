@@ -1,0 +1,83 @@
+<body id="page-top">
+    <div id="wrapper">
+            {{> _navbar}}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-0">Hi, {{name}}</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="/add"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Add Coursework</a></div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 font-weight-bold" onclick="handle()">Incomplete Courseworks</p>
+                            </div>
+                            {{#if coursework}}
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 text-nowrap">
+                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;
+                                            <select class="form-control form-control-sm custom-select custom-select-sm" onchange="location = this.value;">
+                                            <option value="/dashboard">All Coursework</option>
+                                            <option value="/incomplete" selected="">Incomplete Coursework</option>
+                                            <option value="/complete">Complete Coursework</option>
+                                            </select>&nbsp;</label></div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th style="vertical-align: top">Project</th>
+                                                <th style="vertical-align: top">Module</th>
+                                                <th style="vertical-align: top">Milestones</th>
+                                                <th style="vertical-align: top">Level</th>
+                                                <th style="vertical-align: top">Due Date</th>
+                                                <th style="vertical-align: top">Completion Date</th>
+                                                <th style="vertical-align: top">Status</th>
+                                                <th style="vertical-align: top">Update</th>
+                                                <th style="vertical-align: top">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each coursework}}
+                                            <tr>
+                                                <td><a href="/coursework/{{_id}}">{{projectTitle}}</a></td>
+                                                <td>{{module}}</td>
+                                                <td>{{milestones}}</td>
+                                                <td>{{level}}</td>
+                                                <td>{{formatDate due 'Do MMMM YYYY'}}</td>
+                                                <td>{{formatDate completion 'Do MMMM YYYY'}}</td>
+                                                <td>{{status}}</td>
+                                                <td style="text-align: center"><a href="/editCoursework/{{_id}}"><i class="fa fa-exchange"></i></a></td>
+                                                <td style="text-align: center"><a href="/deleteCoursework/{{_id}}"><i class="fa fa-remove" onclick="return confirm('Are you sure you want to delete this coursework?')"></i></a></td>
+                                            </tr>
+                                            {{/each}}
+                                            
+                                            <tr></tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr></tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            {{else}}
+                            <div class="card-body">
+                                <div class="row">
+                                    <h6 class="alt-coursework">Add a coursework to get started!</h6>
+                                </div>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © schedulerApp 2020</span></div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>

@@ -1,0 +1,72 @@
+<body id="page-top">
+    <div id="wrapper">
+        {{> _navbar}}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-0">Edit a Coursework Entry</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" style="background-color: red" role="button" href="/dashboard">Cancel</a>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 font-weight-bold">Coursework Info</p>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="contact-clean">
+							        <form method="POST" role="form" action="/{{coursework._id}}">
+							            <div class="form-group">
+							            	<label for="projectTitle">Project Name</label>
+							            	<input class="form-control" type="text" name="projectTitle" value="{{coursework.projectTitle}}" required>
+							            </div>
+							            <div class="form-group">
+							            	<label for="module">Module Name</label>
+							            	<input class="form-control" type="text" name="module"  value="{{coursework.module}}" required>
+							            </div>
+							            <div class="form-group">
+							            	<label for="level">Module Level</label>
+							            	<input class="form-control" type="number" min="1" max="4" name="level" value="{{coursework.level}}" required>
+							            </div>
+							            <div class="form-group">
+							            	<label for="milestones[]">Milestones</label>
+											{{#each coursework.milestones as |milestone|}}
+                								<input class="form-control" type="text" name="milestones" value="{{milestone}}">
+            								{{/each}}
+							            </div>
+							            <div class="form-group">
+							            	<label for="due">Due Date</label>
+							            	<input class="form-control" type="date" name="due" value="{{formatDate coursework.due 'YYYY-MM-DD'}}">
+							            </div>
+							            <div class="form-group">
+							            	<label for="completion">Actual Completion Date</label>
+							            	<input class="form-control" type="date" name="completion" value="{{formatDate coursework.completion 'YYYY-MM-DD'}}">
+							            </div>
+							            <div class="form-group">
+											<label for="status">Status</label>
+											<select name="status" required>
+												{{#select coursework.status}}
+												<option value="Incomplete" selected>Incomplete</option>
+												<option value="Completed">Completed</option>
+												{{/select}}
+											</select>
+							            	{{!-- <input class="" type="checkbox" name="status" placeholder="Status">
+							            	<label for="status"> I have completed this coursework project.</label> --}}
+							            </div>
+							            <div class="form-group"><button class="btn btn-primary" type="submit">Update</button></div>
+										
+							        </form>
+							    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © schedulerApp 2020</span></div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>

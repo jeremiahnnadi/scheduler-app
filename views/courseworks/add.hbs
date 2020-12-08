@@ -1,0 +1,70 @@
+<body id="page-top">
+    <div id="wrapper">
+        {{> _navbar}}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-0">Add a new Coursework Entry</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" style="background-color: red" role="button" href="/dashboard">Cancel</a>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 font-weight-bold">Coursework Info</p>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="contact-clean">
+							        <form method="POST" role="form" action="/add">
+							            <div class="form-group">
+							            	<label for="projectTitle">Project Name</label>
+							            	<input class="form-control" type="text" name="projectTitle" placeholder="Project Name" required>
+							            </div>
+							            <div class="form-group">
+							            	<label for="module">Module Name</label>
+							            	<input class="form-control" type="text" name="module" placeholder="Module Name" required>
+							            </div>
+							            <div class="form-group">
+							            	<label for="level">Module Level</label>
+							            	<input class="form-control" type="number" min="1" max="4" name="level" placeholder="Module Level" required>
+							            </div>
+							            <div class="form-group">
+							            	<label for="milestones[]">Milestones</label>
+							            	<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 1">
+							            	<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 2">
+							            	<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 3">
+											<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 4">
+											<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 5">
+							            </div>
+							            <div class="form-group">
+							            	<label for="due">Due Date</label>
+							            	<input class="form-control" type="date" name="due" placeholder="mm-dd-yyyy">
+							            </div>
+							            <div class="form-group">
+							            	<label for="completion">Actual Completion Date</label>
+							            	<input class="form-control" type="date" name="completion" placeholder="mm-dd-yyyy">
+							            </div>
+							            <div class="form-group">
+											<label for="status">Status</label>
+											<select name="status" required>
+												<option value="Incomplete" selected>Incomplete</option>
+												<option value="Completed">Completed</option>
+											</select>
+							            </div>
+							            <div class="form-group"><button class="btn btn-primary" type="submit">Add Coursework</button></div>
+										
+							        </form>
+							    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © schedulerApp 2020</span></div>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
