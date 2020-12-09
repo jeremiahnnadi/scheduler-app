@@ -1,7 +1,7 @@
 <body id="page-top">
     <div id="wrapper">
         {{> _navbar}}
-            <div class="container-fluid">
+            <div class="container-fluid" style="max-width: 60%;">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
                     <h3 class="text-dark mb-0">Add a new Coursework Entry</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" style="background-color: red" role="button" href="/dashboard">Cancel</a>
                 </div>
@@ -29,11 +29,14 @@
 							            </div>
 							            <div class="form-group">
 							            	<label for="milestones[]">Milestones</label>
-							            	<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 1">
+											<fieldset id="fset">
+												<button onclick="add_field()" class="btn btn-outline-primary btn-block" type="button">Click to input a milestone</button>
+											</fieldset>
+							            	{{!-- <input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 1">
 							            	<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 2">
 							            	<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 3">
 											<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 4">
-											<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 5">
+											<input class="form-control milestones" type="text" name="milestones" placeholder="Milestone 5"> --}}
 							            </div>
 							            <div class="form-group">
 							            	<label for="due">Due Date</label>

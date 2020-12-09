@@ -19,5 +19,23 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/script.min.js"></script>
+    <script>
+        function add_field(){
+                var x = document.getElementById("fset");
+                // create an input field to insert
+                var new_field = document.createElement("input");
+                // set input field data type to text
+                new_field.setAttribute("type", "text");
+                // set input field class
+                new_field.setAttribute("class", "form-control");
+                // set input field name
+                new_field.setAttribute("name", "milestones");
+                new_field.setAttribute("placeholder", "Milestone");
+                // select last position to insert element before it
+                var pos = x.childElementCount;
+                // insert element
+                x.insertBefore(new_field, x.childNodes[pos]);
+            }
+    </script>
 </body>
 </html>

@@ -38,6 +38,8 @@ app.use(session({
     secret: 'bryson tiller',
     resave: 'false',
     saveUninitialized: false,
+    //secure: true,
+    // httpOnly: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
