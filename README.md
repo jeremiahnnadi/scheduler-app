@@ -17,7 +17,7 @@ A listing of all incomplete courseworks and their milestones can be viewed. -Use
 2. Ensure that you have the latest versions of node and npm installed, and a good internet connection.
 3. Navigate to the directory in a terminal
 4. Run the command "npm install" (which will install the application dependencies first)
-5. Run the command "node app"
+5. Run the command "npm run start" [Alternatively "node app" or "nodemon app would work]
 6. Open a browser and navigate to "localhost:3000/"
 7. If the PORT 3000 is currently in use, the application will open on PORT 5000 instead.
 8. You may login on the app and create an account. 
@@ -28,4 +28,5 @@ A listing of all incomplete courseworks and their milestones can be viewed. -Use
 1. Hitting the  search option reload button after a search, resets the data displayed.
 2. Clicking a coursework title name loads up a page with coursework data and a sharing link.
 3. Practice using the 'Show' dropdown to display different content.
-3. The icons on each coursework bar are active, try them out!
+4. The icons on each coursework bar are active, try them out!
+5. Click on your Profile Image. See the logout button? It works.
